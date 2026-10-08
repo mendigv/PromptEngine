@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Ambienti virtuali
+venv/
+env/
+.env/
+.venv/
+
+# File di configurazione sensibili
+.env
+.env.local
+
+# Database SQLite (se usati in locale)
+*.db
+*.sqlite3
+
+# Log
+*.log
+
+# File specifici del progetto (dati locali/temporanei)
+promptengine.db
+promptengine.html
+*.bak

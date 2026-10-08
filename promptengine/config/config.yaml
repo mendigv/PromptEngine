@@ -1,0 +1,833 @@
+# PromptEngine V2.0 — Configurazione Esterna
+# Modifica questo file per aggiungere modelli, toni o domini senza toccare il codice.
+
+models:
+  "1":
+    key: openai_group
+    name: "OpenAI (ChatGPT)"
+    color: "\x1b[38;5;84m"
+    icon: "⬡"
+    sub_models:
+      "1":
+        key: chatgpt
+        name: "GPT-4o"
+        desc: "Standard / Multimodale veloce"
+      "2":
+        key: o1_pro
+        name: "o1-pro"
+        desc: "Deep Reasoning / Logica avanzata"
+      "3":
+        key: o3_mini
+        name: "o3-mini"
+        desc: "Fast Reasoning / Coding e Math"
+  "2":
+    key: claude_group
+    name: "Claude (Anthropic)"
+    color: "\x1b[38;5;215m"
+    icon: "◈"
+    sub_models:
+      "1":
+        key: claude_3_5
+        name: "Claude 3.5 Sonnet"
+        desc: "Standard coding / classico"
+      "2":
+        key: claude_3_7
+        name: "Claude 3.7 Sonnet"
+        desc: "Legacy / Standard rigid XML con tag <thinking>"
+      "3":
+        key: claude_4_8
+        name: "Claude 4.8"
+        desc: "Frontier / Autonomous Agentic XML"
+  "3":
+    key: gemini_group
+    name: "Gemini (Google)"
+    color: "\x1b[38;5;33m"
+    icon: "✦"
+    sub_models:
+      "1":
+        key: gemini_flash
+        name: "Gemini 1.5 Flash"
+        desc: "Legacy veloce"
+      "2":
+        key: gemini_pro
+        name: "Gemini 1.5 Pro"
+        desc: "Legacy grande contesto"
+      "3":
+        key: gemini_3_5_flash
+        name: "Gemini 3.5 Flash"
+        desc: "Frontier veloce ed efficiente"
+      "4":
+        key: gemini_3_1_pro
+        name: "Gemini 3.1 Pro"
+        desc: "Frontier grande contesto con Long Context Retrieval"
+      "5":
+        key: gemini_3_5_reasoning
+        name: "Gemini 3.5 Reasoning"
+        desc: "Deep Reasoning di Google"
+  "4":
+    key: deepseek_r1
+    name: "DeepSeek-R1 (CoT)"
+    color: "\x1b[38;5;69m"
+    icon: "⊕"
+  "5":
+    key: llama4
+    name: "Llama 4 Scout"
+    color: "\x1b[38;5;141m"
+    icon: "⋈"
+  "6":
+    key: perplexity
+    name: "Perplexity"
+    color: "\x1b[38;5;45m"
+    icon: "⊛"
+  "7":
+    key: mistral
+    name: "Mistral"
+    color: "\x1b[38;5;208m"
+    icon: "⟡"
+  "8":
+    key: grok
+    name: "Grok (xAI)"
+    color: "\x1b[38;5;252m"
+    icon: "▸"
+  "9":
+    key: qwen
+    name: "Qwen (Alibaba)"
+    color: "\x1b[38;5;99m"
+    icon: "⊞"
+  "10":
+    key: cohere
+    name: "Cohere"
+    color: "\x1b[38;5;83m"
+    icon: "◎"
+  "11":
+    key: midjourney
+    name: "Midjourney (Visual)"
+    color: "\x1b[38;5;226m"
+    icon: "◉"
+  "12":
+    key: gemma
+    name: "Gemma (Google)"
+    color: "\x1b[38;5;183m"
+    icon: "⬡"
+
+tones:
+  "1":
+    key: formale
+    name: Formal
+    desc: "Professional, structured, precise vocabulary"
+    style: "registro formale e professionale, sintassi elaborata, lessico preciso e istituzionale"
+    avoid: "colloquialismi, contrazioni, tono informale, emoji"
+  "2":
+    key: creativo
+    name: Creative
+    desc: "Vibrant, original, out of the box"
+    style: "registro vivace e originale, figure retoriche, ritmo narrativo coinvolgente, sorprendente"
+    avoid: "cliché, frasi fatte, strutture prevedibili, genericità. Evita assolutamente incipit del tipo \"C'era una volta\", morali infantili o toni eccessivamente favolistici."
+  "3":
+    key: tecnico
+    name: Technical
+    desc: "Precise, rigorous, exact terminology"
+    style: "precisione terminologica assoluta, struttura logico-deduttiva, dati e specifiche esplicite, step sequenziali"
+    avoid: "vaghezza, generalizzazioni, linguaggio impreciso, omissioni tecniche"
+  "4":
+    key: ironico
+    name: Witty
+    desc: "Sharp, intelligent wit, useful and fun"
+    style: "tono arguto e autoironico, wit intelligente, doppi sensi calibrati, umorismo sottile ma utile"
+    avoid: "offensività, banalità, ironia fine a se stessa, perdita di utilità pratica"
+
+domains:
+  - name: storia
+    role: "storico ed esperto di storia, capace di contestualizzare fatti, cause e conseguenze nel periodo rilevante"
+    corpus: "storia storico napoleone guerra impero battaglie rivoluzione antica roma medioevo regno dinastia faraone imperatore passato epoca secolo antichità rinascimento date storiche"
+  - name: cucina
+    role: "chef professionista e food expert con esperienza in tecniche culinarie, ingredienti e tradizioni gastronomiche"
+    corpus: "cucina cucinare ricetta torta pasta dolce impasto forno ingredienti carbonara pizza risotto chef ristorante gastronomia sapore cibo cuocere bollire friggere pietanza padella"
+  - name: scienza
+    role: "divulgatore scientifico con solida formazione accademica, capace di rendere accessibili concetti complessi senza perdere rigore"
+    corpus: "scienza scientifico fisica chimica biologia atomo molecola cellula dna evoluzione universo gravità relatività fotosintesi energia laboratorio esperimento teoria formula astronomia"
+  - name: tecnologia
+    role: "esperto di tecnologia e innovazione digitale con conoscenza approfondita di hardware, software e sistemi"
+    corpus: "tecnologia digitale informatica computer internet intelligenza artificiale blockchain 5g smartphone hardware software app programmazione server rete router wifi elettronica device"
+  - name: salute
+    role: "professionista sanitario con competenze in medicina, fisiologia e benessere, capace di fornire informazioni accurate in linguaggio accessibile"
+    corpus: "salute medicina medico malattia sintomi corpo umano fisiologia vitamine dieta nutrizione organo benessere cura ospedale farmaco terapia virus batteri cuore polmoni sangue"
+  - name: finanza
+    role: "esperto di economia e finanza con competenze in mercati, investimenti e meccanismi economici"
+    corpus: "finanza economia borsa azioni investimenti mutuo inflazione banca mercati trading criptovalute spread pil spread dividendi portafoglio obbligazioni risparmio tasse bilancio"
+  - name: arte
+    role: "storico dell'arte e critico culturale con conoscenza approfondita di movimenti artistici, opere e contesti creativi"
+    corpus: "arte quadro pittore pittura scultura museo rinascimento artista mostra galleria capolavoro affresco acquerello impressionismo cubismo surrealismo pennello tela colore"
+  - name: sport
+    role: "esperto di sport e scienze motorie con conoscenza approfondita di regole, tecniche e dinamiche sportive"
+    corpus: "sport calcio tennis basket atletica allenamento squadra campionato olimpiadi partita torneo gara arbitro gol rete canestro record atleta corsa nuoto sci muscoli palestra"
+  - name: natura
+    role: "naturalista ed esperto di scienze ambientali con conoscenza di ecosistemi, animali e fenomeni naturali"
+    corpus: "natura naturale animale pianta ecosistema clima ambiente oceano foresta specie bioma ecologia mammiferi uccelli pesci insetti albero fiore montagne fiume inquinamento green"
+  - name: geografia
+    role: "esperto di geografia con conoscenza approfondita di territori, culture e dinamiche geopolitiche"
+    corpus: "geografia capitale continente nazione stato mappa cartina confini oceano montagna fiume lago popolazione demografia clima geopolitica territorio regione mondo coordinate"
+  - name: filosofia
+    role: "filosofo ed esperto di storia del pensiero, capace di esplorare concetti astratti con chiarezza e profondità"
+    corpus: "filosofia filosofo etica morale esistenza significato della vita ontologia epistemologia logica pensiero concetto ragione anima metafisica socrate platone aristotele kant nietzsche"
+  - name: diritto
+    role: "esperto legale con conoscenza del sistema giuridico e della normativa rilevante"
+    corpus: "diritto legge avvocato giurisprudenza contratto costituzione giudice normativa tribunale processo causa legale sentenza codice civile penale reato accusa difesa diritti doveri"
+  - name: matematica
+    role: "matematico ed esperto di didattica della matematica, capace di spiegare concetti numerici e logici con chiarezza"
+    corpus: "matematica equazione algebra geometria calcolo teorema numero primo frazione percentuale derivata integrale statistica probabilità funzioni trigonometria pitagora logaritmo"
+  - name: psicologia
+    role: "psicologo ed esperto di scienze comportamentali con conoscenza approfondita della mente e del comportamento umano"
+    corpus: "psicologia ansia depressione comportamento emozioni mente umana terapia psicologo psiche trauma subconscio cognitivo freud jung personalità stress trauma disturbo fobia"
+  - name: musica
+    role: "musicista ed esperto di teoria musicale con conoscenza approfondita di strumenti, generi e composizione"
+    corpus: "musica strumento musicale accordo chitarra pianoforte genere musicale canzone spartito melodia ritmo sinfonia concerto pop rock jazz classica basso batteria canto voce audio"
+  - name: lavoro
+    role: "career coach ed esperto di mondo del lavoro con conoscenza di dinamiche professionali, colloqui e sviluppo di carriera"
+    corpus: "lavoro colloquio di lavoro curriculum carriera contratto di lavoro dimissioni assunzione stipendio azienda risorse umane hr manager promozione smart working linkedin professione"
+  - name: spiritualita
+    role: "esperto di filosofie religiose e tradizioni spirituali, capace di presentare diverse prospettive con equilibrio e rispetto"
+    corpus: "spiritualità religione meditazione buddismo cristianesimo islam yoga anima dio fede preghiera chiesa tempio moschea illuminazione karma mantra sacro divino spirito"
+  - name: giochi
+    role: "esperto di giochi da tavolo, strategia ludica e regole di gioco con conoscenza approfondita di meccaniche e tattiche"
+    corpus: "giochi scacchi dama poker videogioco regole del gioco gioco da tavolo dadi carte scacchiera pedine strategia ludico divertimento turni multiplayer boardgame rpg mmo"
+  - name: criptovalute
+    role: "esperto di criptovalute e tecnologia blockchain con conoscenza di mercati digitali e finanza decentralizzata"
+    corpus: "criptovalute bitcoin ethereum blockchain crypto nft token wallet defi staking mining satoshi decentralizzato exchange binance coinbase altcoin smart contract web3 ledger"
+  - name: intrattenimento
+    role: "esperto di cultura pop, cinema, musica e intrattenimento con conoscenza approfondita del settore"
+    corpus: "intrattenimento film cinema serie tv cantante attore regista concerto pop culture hollywood oscar netflix streaming spettacolo teatro gossip celebrità show televisivo"
+  - name: auto
+    role: "esperto di automobili, motori e meccanica con conoscenza tecnica approfondita del settore automotive"
+    corpus: "auto automobile motore meccanico patente veicolo macchina ruote pneumatici freni benzina diesel elettrica ibrida ferrari porsche bmw tuning carrozzeria cambio frizione guida"
+  - name: viaggi
+    role: "esperto di viaggi e turismo con conoscenza approfondita di destinazioni, culture e logistica di viaggio"
+    corpus: "viaggi vacanza turismo aeroporto volo hotel destinazione turistica guida turistica biglietto passaporto valigia mare montagna esplorare itinerario avventura ostello resort"
+
+topic_roles:
+  email:
+    role: "esperto di comunicazione professionale con 15 anni di esperienza nella redazione di email formali, lettere commerciali e comunicazioni accademiche in italiano"
+    skills: "analisi del contesto comunicativo, adattamento del registro linguistico, strutturazione persuasiva del messaggio"
+  code:
+    role: "Senior Software Engineer con expertise in architettura software, clean code, design pattern e ottimizzazione delle performance"
+    skills: "problem decomposition, code review, security best practices, testing strategies, documentazione tecnica"
+  content:
+    role: "Content Strategist e Copywriter con expertise in storytelling digitale, SEO semantico e psicologia della persuasione"
+    skills: "headline writing, narrative arc, engagement optimization, call-to-action design"
+  summary:
+    role: "analista esperto in knowledge management, sintesi cognitiva e comunicazione delle informazioni complesse"
+    skills: "information hierarchy, key insight extraction, clarity optimization"
+  strategy:
+    role: "Business Strategist con MBA e 12 anni di consulenza strategica per startup e aziende Fortune 500"
+    skills: "SWOT analysis, OKR framework, competitive intelligence, go-to-market strategy"
+  translation:
+    role: "traduttore professionista certificato ATA con specializzazione in testi tecnici, legali e letterari"
+    skills: "cultural adaptation, register matching, terminology consistency, idiomatic naturalness"
+  explain:
+    role: "esperto comunicatore e formatore con eccellenti capacità di sintesi e chiarezza espositiva, specializzato nell'argomento specifico della richiesta"
+    skills: "analogical reasoning, scaffolding didattico, Feynman technique, progressive disclosure"
+  image:
+    role: "direttore della fotografia e visual director con expertise in cinematografia, luce naturale e prompt engineering per AI generativa"
+    skills: "composizione visiva, color grading, direzione artistica, technical photography parameters"
+  general:
+    role: "esperto nella materia specifica della richiesta, con conoscenza approfondita del dominio rilevante"
+    skills: "analisi contestuale, ricerca di accuratezza fattuale, capacità di sintesi e spiegazione chiara"
+
+topic_contexts:
+  email: "L'utente deve redigere una comunicazione scritta professionale. La richiesta è {complexity}. Contesto specifico: \"{trimmed}\". Il destinatario e il tono devono essere inferiti dal contesto."
+  code: "L'utente ha un task di sviluppo software da risolvere. La richiesta è {complexity}. Specifiche tecniche: \"{trimmed}\". Priorità: correttezza, leggibilità, manutenibilità."
+  content: "L'utente necessita di contenuto scritto originale. La richiesta è {complexity}. Brief creativo: \"{trimmed}\". L'output deve essere immediatamente pubblicabile."
+  summary: "L'utente vuole una sintesi efficace. La richiesta è {complexity}. Argomento da sintetizzare: \"{trimmed}\". Il risultato deve essere denso di valore e privo di ridondanze."
+  strategy: "L'utente affronta una sfida strategica. La richiesta è {complexity}. Scenario: \"{trimmed}\". L'analisi deve essere actionable e basata su framework consolidati."
+  translation: "L'utente necessita di una traduzione/adattamento linguistico. La richiesta è {complexity}. Testo: \"{trimmed}\". Priorità: naturalezza nella lingua target e fedeltà semantica."
+  explain: "L'utente vuole comprendere qualcosa. La richiesta è {complexity}. Domanda: \"{trimmed}\". La spiegazione deve essere accessibile ma non banalizzante."
+  general: "L'utente ha una richiesta specifica che richiede competenza nel merito. La richiesta è {complexity}. Domanda/richiesta: \"{trimmed}\". Determina autonomamente il dominio di competenza (storia, scienza, cucina, ecc.) in base al contenuto."
+
+topic_tasks:
+  email: |
+    Redigi una email completa e professionale basata sul contesto fornito.
+    
+    Passo 1 — Analisi: Identifica destinatario, scopo primario e tono appropriato.
+    Passo 2 — Oggetto: Formula un oggetto chiaro (max 60 caratteri), specifico e orientato all'azione.
+    Passo 3 — Apertura: Saluto calibrato al destinatario + frase di apertura contestualizzante.
+    Passo 4 — Corpo: Sviluppa la richiesta in 2-3 paragrafi logicamente connessi.
+    Passo 5 — Chiusura: Formula di congedo professionale + call-to-action esplicita se necessaria.
+    Passo 6 — Firma: Struttura firma appropriata al contesto.
+  code: |
+    Sviluppa una soluzione software completa per il task specificato.
+    
+    Passo 1 — Analisi del problema: Scomponi il task in sotto-problemi. Identifica edge cases e vincoli.
+    Passo 2 — Design dell'architettura: Scegli pattern e strutture dati ottimali. Motiva le scelte.
+    Passo 3 — Implementazione: Scrivi il codice completo, funzionante e commentato.
+    Passo 4 — Gestione errori: Implementa error handling robusto per tutti i casi limite.
+    Passo 5 — Testing: Fornisci almeno 3 casi di test significativi.
+    Passo 6 — Documentazione: Aggiungi docstring e un esempio d'uso pratico.
+  content: |
+    Crea contenuto originale e ad alto impatto per il brief specificato.
+    
+    Passo 1 — Hook: Formula un'apertura che cattura l'attenzione nei primi 3 secondi.
+    Passo 2 — Promessa: Esplicita chiaramente il valore che il lettore otterrà.
+    Passo 3 — Sviluppo: Costruisci con struttura Problem-Agitate-Solve.
+    Passo 4 — Prove: Inserisci dati, esempi concreti o casi d'uso.
+    Passo 5 — CTA: Chiusura con call-to-action singola, chiara e motivata.
+  summary: |
+    Produci una sintesi cognitivamente efficace del materiale specificato.
+    
+    Passo 1 — Panoramica (max 3 righe): Qual è l'idea centrale? Perché è rilevante?
+    Passo 2 — Struttura: Identifica i 3-5 punti chiave in ordine gerarchico di importanza.
+    Passo 3 — Insight: Estrai le conclusioni non ovvie o controintuitive.
+    Passo 4 — Connessioni: Evidenzia relazioni tra i concetti.
+    Passo 5 — Takeaway: Una frase finale che sintetizza il valore essenziale.
+  strategy: |
+    Sviluppa un'analisi strategica strutturata e immediatamente applicabile.
+    
+    Passo 1 — Diagnosi situazionale: SWOT sintetico, focus sui fattori critici.
+    Passo 2 — Obiettivi SMART: Definisci 2-3 obiettivi misurabili con timeline.
+    Passo 3 — Iniziative prioritarie: 3-5 azioni ad alto impatto/basso sforzo.
+    Passo 4 — Piano operativo: Timeline a 30/60/90 giorni con milestone verificabili.
+    Passo 5 — KPI e metriche: Definisci i 3-5 indicatori di successo.
+    Passo 6 — Risk management: Identifica i 3 rischi principali e il piano di mitigazione.
+  translation: |
+    Esegui una traduzione professionale di alta qualità.
+    
+    Passo 1 — Analisi: Identifica registro, tono, pubblico target e specificità culturali.
+    Passo 2 — Prima traduzione: Fedele al significato semantico completo.
+    Passo 3 — Adattamento culturale: Rivedi idiomi e strutture non trasferibili direttamente.
+    Passo 4 — Ottimizzazione del registro: Assicurati che il tono corrisponda all'originale.
+    Passo 5 — Revisione terminologica: Verifica consistenza dei termini tecnici.
+  explain: |
+    Spiega in modo chiaro, preciso e memorabile.
+    
+    Passo 1 — Definizione essenziale: Cos'è in una frase. Nessun prerequisito richiesto.
+    Passo 2 — Analogia concreta: Collega il concetto a qualcosa di familiare nella vita quotidiana.
+    Passo 3 — Meccanismo: Come funziona concretamente, step by step. Esempi reali, non astratti.
+    Passo 4 — Perché importa: Applicazioni pratiche e rilevanza nel mondo reale.
+    Passo 5 — Malintesi comuni: Chiarifica le 2-3 incomprensioni più frequenti.
+    Passo 6 — Approfondimento: Per chi vuole saperne di più, indica la direzione successiva.
+  general: |
+    Rispondi in modo completo, accurato e ben strutturato alla richiesta: "{user_text}"
+    
+    Passo 1 — Identificazione del dominio: Determina l'ambito (storia, scienza, cucina, sport, ecc.) e adatta il tuo approccio.
+    Passo 2 — Risposta diretta: Affronta subito il cuore della domanda senza premesse superflue.
+    Passo 3 — Contestualizzazione: Aggiungi il contesto necessario (date, cause, definizioni).
+    Passo 4 — Dettagli rilevanti: Approfondisci gli aspetti più significativi.
+    Passo 5 — Sintesi finale: Chiudi con una considerazione che lega il tutto.
+    
+    Non assumere che la domanda riguardi software o business se non esplicitamente richiesto.
+
+formatters:
+  chatgpt: |
+    # RUOLO
+    Sei un {RUOLO}
+    
+    # CONTESTO
+    {CONTESTO}
+    
+    # COMPITO
+    {COMPITO}
+    
+    # STILE E VINCOLI
+    {TONO_PROTETTO}
+    
+    # OUTPUT ATTESO
+    - Lingua: Match user prompt language (English/Italian)
+    - Formato: strutturato con sezioni chiare
+    - Qualità: completo, pronto all'uso, zero editing necessario
+    - Vincolo critico: Non iniziare mai con "Certamente!", "Certo!" o frasi di conferma vuote. Inizia direttamente con il contenuto richiesto.
+  claude_3_5: |
+    <system>
+    Sei un {RUOLO}
+    </system>
+    
+    <context>
+    {CONTESTO}
+    </context>
+    
+    <instructions>
+    {COMPITO}
+    </instructions>
+    
+    <style>
+    {TONO_PROTETTO}
+    </style>
+    
+    <output_format>
+    <language>Match user prompt language (English/Italian)</language>
+    <structure>Usa intestazioni chiare e gerarchia visiva</structure>
+    <quality>Output immediatamente utilizzabile, nessuna revisione necessaria</quality>
+    <constraint>Non includere prefazioni, disclaimer o frasi di conferma. Inizia direttamente con il contenuto.</constraint>
+    </output_format>
+  claude_3_7: |
+    <system>
+    Sei un {RUOLO}
+    </system>
+    
+    <context>
+    {CONTESTO}
+    </context>
+    
+    <instructions>
+    {COMPITO}
+    </instructions>
+    
+    <style>
+    {TONO_PROTETTO}
+    </style>
+    
+    <output_format>
+    <language>Match user prompt language (English/Italian)</language>
+    <structure>Usa intestazioni chiare e gerarchia visiva</structure>
+    <quality>Output immediatamente utilizzabile, nessuna revisione necessaria</quality>
+    <constraint>Non includere prefazioni, disclaimer o frasi di conferma. Inizia direttamente con il contenuto.</constraint>
+    </output_format>
+    
+    <thinking>
+    Prima di rispondere, analizza: (1) Qual è l'obiettivo reale? (2) Quali sono i vincoli impliciti? (3) Qual è il formato ottimale?
+    </thinking>
+  claude_4_8: |
+    <system>
+    Sei un {RUOLO}
+    </system>
+    
+    <instructions>
+    {COMPITO}
+    
+    STILE:
+    {TONO_PROTETTO}
+    </instructions>
+    
+    <context>
+    {CONTESTO}
+    </context>
+    
+    <direttiva_autonomia>
+    Risolvi il compito focalizzandoti sul risultato finale. Hai piena autonomia logica sul processo decisionale e sui passaggi intermedi.
+    </direttiva_autonomia>
+    
+    <output_format>
+    <language>Match user prompt language (English/Italian)</language>
+    <structure>Usa intestazioni chiare e gerarchia visiva</structure>
+    <quality>Output immediatamente utilizzabile, nessuna revisione necessaria</quality>
+    <constraint>Non includere prefazioni, disclaimer o frasi di conferma. Inizia direttamente con il contenuto.</constraint>
+    </output_format>
+  gemini_flash: |
+    ## Profilo esperto: {RUOLO}
+    ## Contesto operativo:
+    {CONTESTO}
+    ## Obiettivo e metodologia:
+    {COMPITO}
+    ## Specifiche e Stile:
+    {TONO_PROTETTO}
+    > OUTPUT ULTRA-RAPIDO E STRINGATO. Lingua: Match user language.
+  gemini_pro: |
+    ## SYSTEM INSTRUCTION
+    Sei un {RUOLO}
+    Ottimizzato per elaborare contesti estesi (Long Context Retrieval).
+    Assicurati di indicizzare e richiamare accuratamente tutte le informazioni del contesto.
+    
+    ## CONTESTO OPERATIVO
+    {CONTESTO}
+    
+    ## OBIETTIVO E METODOLOGIA
+    {COMPITO}
+    
+    ## SPECIFICHE E STILE
+    {TONO_PROTETTO}
+    | Parametro | Valore |
+    |-----------|--------|
+    | Lingua | Match user language |
+    | Struttura | Sezioni con titoli chiari |
+    | Qualità | Pronto all'uso |
+  deepseek_r1: |
+    <|System|>
+    Sei un {RUOLO}
+    
+    ISTRUZIONE CRITICA PER IL RAGIONAMENTO:
+    Non forzare la formattazione dei vincoli all'interno del tag <think>, ma applicali rigorosamente solo nel blocco finale di risposta.
+    <|end_of_sentence|>
+    
+    <|User|>
+    CONTESTO: {CONTESTO}
+    
+    COMPITO:
+    {COMPITO}
+    
+    STILE RICHIESTO:
+    {TONO_PROTETTO}
+    <|end_of_sentence|>
+    
+    <|Assistant|>
+  llama4: |
+    <|begin_of_text|><|start_header_id|>system<|end_header_id|>
+    Sei un {RUOLO}<|eot_id|>
+    <|start_header_id|>user<|end_header_id|>
+    
+    CONTESTO:
+    {CONTESTO}
+    
+    COMPITO E METODOLOGIA:
+    {COMPITO}
+    
+    VINCOLI DI STILE:
+    {TONO_PROTETTO}
+    
+    REQUISITI OUTPUT:
+    - Lingua: Match user language
+    - Struttura chiara con sezioni
+    - Output completo e immediatamente utilizzabile<|eot_id|>
+    <|start_header_id|>assistant<|end_header_id|>
+  openai_reasoning: |
+    # RUOLO
+    Sei un {RUOLO}
+    
+    # CONTESTO
+    {CONTESTO}
+    
+    # COMPITO
+    {COMPITO}
+    
+    # STILE E VINCOLI
+    {TONO_PROTETTO}
+    
+    # OUTPUT ATTESO
+    - Lingua: Match user language
+    - Direttiva: Fornisci direttamente l'output finale perfettamente formattato, senza includere o forzare spiegazioni intermedie del tuo processo di pensiero.
+  perplexity: |
+    SEARCH & SYNTHESIZE MODE
+    
+    Esperto: {RUOLO}
+    
+    CONTESTO:
+    {CONTESTO}
+    
+    COMPITO:
+    {COMPITO}
+    
+    STILE:
+    {TONO_PROTETTO}
+    
+    ISTRUZIONI SPECIALI PERPLEXITY:
+    - Usa le tue capacità di ricerca web in tempo reale per arricchire la risposta con dati aggiornati
+    - Cita le fonti per ogni affermazione verificabile
+    - Distingui chiaramente tra informazioni verificate e inferenze
+    - Prioritizza dati aggiornati rispetto alle conoscenze statiche
+    - Lingua: Match user language
+  mistral: |
+    [INST] Sei un {RUOLO}
+    
+    CONTESTO: {CONTESTO}
+    
+    COMPITO:
+    {COMPITO}
+    
+    STILE:
+    {TONO_PROTETTO}
+    
+    REQUISITI:
+    - Lingua: Match user language
+    - Output strutturato e completo
+    - Diretto e senza preamboli [/INST]
+  grok: |
+    SYSTEM: Sei un {RUOLO} con accesso a informazioni in tempo reale.
+    
+    CONTESTO:
+    {CONTESTO}
+    
+    COMPITO:
+    {COMPITO}
+    
+    STILE:
+    {TONO_PROTETTO}
+    
+    SPECIFICHE GROK:
+    - Sfrutta la tua conoscenza real-time per integrare trend, notizie recenti o dati aggiornati dove rilevante
+    - Sii diretto, incisivo, e aggiungi una prospettiva non convenzionale se appropriato
+    - Lingua: Match user language
+  qwen: |
+    <|im_start|>system
+    Sei un {RUOLO}
+    
+    Linee guida:
+    - Lingua: Match user language
+    - Struttura la risposta in modo chiaro e gerarchico
+    - Zero preamboli o disclaimer non necessari
+    <|im_end|>
+    <|im_start|>user
+    CONTESTO: {CONTESTO}
+    
+    COMPITO:
+    {COMPITO}
+    
+    STILE:
+    {TONO_PROTETTO}
+    <|im_end|>
+    <|im_start|>assistant
+    
+  cohere: |
+    ## PREAMBLE
+    Sei un {RUOLO}
+    
+    ## CONTESTO
+    {CONTESTO}
+    
+    ## TASK
+    {COMPITO}
+    
+    ## STYLE
+    {TONO_PROTETTO}
+    
+    ## OUTPUT REQUIREMENTS
+    - **Lingua:** Match user language
+    - **Grounding:** Basa ogni affermazione su evidenze o ragionamenti espliciti
+    - **Struttura:** Usa markdown con titoli, liste e tabelle dove aumentano la chiarezza
+    - **RAG mode:** Se disponi di documenti di contesto, prioritizzali rispetto alla conoscenza parametrica
+  gemma: |
+    <start_of_turn>user
+    Ruolo: {RUOLO}
+    
+    Contesto: {CONTESTO}
+    
+    Task:
+    {COMPITO}
+    
+    Stile e Vincoli:
+    {TONO_PROTETTO}
+    
+    Note:
+    - Lingua: Match user language
+    - Struttura l'output con sezioni chiare
+    - Sii completo e immediatamente utilizzabile
+    - Non includere preamboli<end_of_turn>
+    <start_of_turn>model
+    
+formatter_aliases:
+  gemini_3_5_flash: gemini_flash
+  gemini_3_1_pro: gemini_pro
+  gemini_3_5_reasoning: openai_reasoning
+  o1_pro: openai_reasoning
+  o3_mini: openai_reasoning
+
+midjourney_styles:
+  formale:
+    art: "professional editorial photography, clean minimalist composition, Hasselblad H6D-100c"
+    light: "soft diffused studio lighting, large softbox, controlled shadows"
+    mood: "sophisticated, timeless, authoritative"
+    ratio: "--ar 4:3"
+  creativo:
+    art: "surrealist conceptual art, vibrant dreamlike colors, magical realism, painterly"
+    light: "dramatic chiaroscuro, volumetric light rays, bioluminescent accents"
+    mood: "imaginative, otherworldly, emotionally evocative"
+    ratio: "--ar 1:1"
+  tecnico:
+    art: "technical 3D render, isometric blueprint style, octane render, parametric design"
+    light: "cool blue LED accent lights, neon wireframe glow, sterile precision"
+    mood: "precise, analytical, futuristic, engineered"
+    ratio: "--ar 16:9"
+  ironico:
+    art: "retro pop art illustration, bold Roy Lichtenstein outlines, Warhol color blocking"
+    light: "flat graphic lighting, strong contrast, primary color fills"
+    mood: "playful, self-aware, witty, subversive"
+    ratio: "--ar 3:4"
+
+topic_detection_rules:
+  summary:
+    - '\briassun(to|mi)\b'
+    - '\bsintesi\b'
+    - '\briduci\s+(il\s+)?test'
+    - '\bcondensa\b'
+    - '\bin\s+breve\b'
+    - '\bfammi\s+un\s+riassunto\b'
+  email:
+    - '\bemail\b'
+    - '\bmail\b'
+    - '\blettera\b'
+    - '\bscrivere?\s+(una\s+)?mail\b'
+    - '\bscrivere?\s+al\s+(mio\s+)?(professore|capo|cliente|collega|docente)\b'
+    - '\bcontattare\b'
+    - '\bmessaggio\s+(formale|professionale)\b'
+  code:
+    - '\bcodice\b'
+    - '\bprogramma(re|zione)?\b'
+    - '\bscript\b'
+    - '\bfunzione\b'
+    - '\b(crea|sviluppa|scrivi|realizza)\s+(un[ao'']?\s*)?(app|applicazione|sito\s*web|website|webapp|programma|software)\b'
+    - '\bpython\b'
+    - '\bjavascript\b'
+    - '\b(html|css|sql|java|php)\b'
+    - '\bbug\b'
+    - '\bdebug(gare)?\b'
+    - '\bapi\b'
+    - '\balgoritmo\b'
+    - '\bdatabase\b'
+    - '\bframework\b'
+    - '\bgit\b'
+  content:
+    - '\barticolo\s+(di\s+)?blog\b'
+    - '\bblog\s*post\b'
+    - '\bpost\s+(per\s+)?(social|instagram|linkedin|facebook)\b'
+    - '\bredigi\b'
+    - '\bcontenuto\s+(per|social|marketing)\b'
+    - '\bcaption\b'
+    - '\bnewsletter\b'
+    - '\bscrivi\s+un\s+articolo\b'
+  strategy:
+    - '\bstrategia\b'
+    - '\bpiano\s+(di\s+)?(business|marketing|aziendale)\b'
+    - '\bbusiness\s+plan\b'
+    - '\bswot\b'
+    - '\bstartup\b'
+    - '\banalisi\s+di\s+mercato\b'
+  translation:
+    - '\btraduc[ei]'
+    - '\btraduzione\b'
+    - '\btranslate\b'
+    - '\bin\s+inglese\b'
+    - '\bin\s+francese\b'
+    - '\bin\s+spagnolo\b'
+    - '\bin\s+tedesco\b'
+  image:
+    - '\bimmagine\b'
+    - '\bfoto(grafia)?\b'
+    - '\billustrazione\b'
+    - '\bdisegna\b'
+    - '\bartwork\b'
+    - '\brender\b'
+    - '\bgenera\s+un.?immagine\b'
+  explain:
+    - '^spiega(mi)?\b'
+    - '\bspiegami\b'
+    - '\bcos.?[èe]\b'
+    - '\bcome\s+funziona\b'
+    - '\bche\s+cos.?[èe]\b'
+    - '\bsignifica(to)?\b'
+    - '\bdifferenza\s+tra\b'
+    - '\bperch[ée]\s+'
+    - '\braccontami\b'
+    - '\bparlami\s+di\b'
+    - '\bparlami\s+della\b'
+    - '\bparlami\s+del\b'
+    - '\bchi\s+(era|è|fu|sono)\b'
+    - '\bcos.?ha\s+fatto\b'
+
+# ── Few-Shot Examples ─────────────────────────────────────────────────────────
+# Esempi per migliorare la qualità delle risposte LLM.
+# Il router inietterà 1-2 esempi nel prompt quando disponibili.
+
+few_shot_examples:
+  email:
+    - input: "scrivi una mail al professore per chiedere un appuntamento"
+      output: |
+        Oggetto: Richiesta di colloquio - Corso di Ingegneria del Software
+        
+        Gentile Prof. Rossi,
+        
+        Le scrivo per richiedere un appuntamento durante il Suo orario di ricevimento.
+        Avrei necessità di discutere alcuni aspetti del progetto finale del corso.
+        
+        Sarebbe disponibile nella settimana del 15-19 luglio?
+        
+        La ringrazio anticipatamente per la disponibilità.
+        
+        Cordiali saluti,
+        [Nome Cognome]
+  code:
+    - input: "scrivi una funzione python per ordinare una lista"
+      output: |
+        def merge_sort(arr: list) -> list:
+            """Implementazione del Merge Sort con complessità O(n log n)."""
+            if len(arr) <= 1:
+                return arr
+            mid = len(arr) // 2
+            left = merge_sort(arr[:mid])
+            right = merge_sort(arr[mid:])
+            return _merge(left, right)
+        
+        def _merge(left: list, right: list) -> list:
+            result = []
+            i = j = 0
+            while i < len(left) and j < len(right):
+                if left[i] <= right[j]:
+                    result.append(left[i])
+                    i += 1
+                else:
+                    result.append(right[j])
+                    j += 1
+            result.extend(left[i:])
+            result.extend(right[j:])
+            return result
+  summary:
+    - input: "riassumi il concetto di machine learning"
+      output: |
+        Il Machine Learning è una branca dell'intelligenza artificiale che permette
+        ai sistemi informatici di apprendere automaticamente dai dati senza essere
+        esplicitamente programmati. Si divide in tre paradigmi principali:
+        
+        1. **Supervised Learning**: apprendimento da dati etichettati
+        2. **Unsupervised Learning**: scoperta di pattern in dati non etichettati
+        3. **Reinforcement Learning**: apprendimento tramite ricompense/penalità
+
+# ── Provider Map ──────────────────────────────────────────────────────────────
+# Mappatura modelli AI → provider e modello effettivo.
+# Usato dal motore engine.py per instradare le chiamate al provider corretto.
+
+provider_map:
+  chatgpt:
+    provider: openai
+    model: gpt-4o
+  o1_pro:
+    provider: openai
+    model: o1-preview
+  o3_mini:
+    provider: openai
+    model: o3-mini
+  claude_3_5:
+    provider: anthropic
+    model: claude-3-5-sonnet-20241022
+  claude_3_7:
+    provider: anthropic
+    model: claude-3-7-sonnet-20250219
+  claude_4_8:
+    provider: anthropic
+    model: claude-sonnet-4-20250514
+  gemini_flash:
+    provider: gemini
+    model: gemini-2.0-flash
+  gemini_pro:
+    provider: gemini
+    model: gemini-1.5-pro
+  gemini_3_5_flash:
+    provider: gemini
+    model: gemini-2.5-flash-preview-05-20
+  gemini_3_1_pro:
+    provider: gemini
+    model: gemini-2.5-pro-preview-06-05
+  gemini_3_5_reasoning:
+    provider: gemini
+    model: gemini-2.5-flash-preview-05-20
+  deepseek_r1:
+    provider: deepseek
+    model: deepseek-reasoner
+  llama4:
+    provider: groq
+    model: llama-3.3-70b-versatile
+  perplexity:
+    provider: groq
+    model: llama-3.1-8b-instant
+  mistral:
+    provider: groq
+    model: llama-3.1-8b-instant
+  grok:
+    provider: groq
+    model: llama-3.1-8b-instant
+  qwen:
+    provider: groq
+    model: llama-3.1-8b-instant
+  cohere:
+    provider: groq
+    model: llama-3.1-8b-instant
+  gemma:
+    provider: groq
+    model: gemma2-9b-it
+  midjourney:
+    provider: none
+    model: none
